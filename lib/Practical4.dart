@@ -13,7 +13,7 @@ class _Practical4State extends State<Practical4> {
   Widget build(BuildContext context) {
     String a;
     double b;
-      return Container(
+        return Container(
        child: Scaffold(
          appBar: AppBar(
            title: Text("Practical 4"),
@@ -35,7 +35,7 @@ class _Practical4State extends State<Practical4> {
                RaisedButton(
                  child: Text("feranhit"),
                  onPressed: (){
-                   setState(() {
+                   
                    if(a.toString().isNotEmpty){
                     b = double.parse(a);
                     b = b*(9/5)+32;
@@ -43,10 +43,8 @@ class _Practical4State extends State<Practical4> {
                       msg: b.toString(),
                     );
                    }
-                   });
                  },
                ),
-              Text(b.toString())
              ],
            ),
          ),
