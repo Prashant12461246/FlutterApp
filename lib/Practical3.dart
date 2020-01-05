@@ -22,8 +22,7 @@ class _Practical3State extends State<Practical3> {
           child: Column(
             children: <Widget>[ 
               RaisedButton(
-                child: Text("click to see toast",
-                style),
+                child: Text("click to see toast"),
                 onPressed: showToast,
                 
               ),
