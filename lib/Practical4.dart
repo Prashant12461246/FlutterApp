@@ -37,17 +37,18 @@ class _Practical4State extends State<Practical4> {
                RaisedButton(
                  child: Text("feranhit"),
                  onPressed: (){
+                   setState(() {
                    if(a.toString().isNotEmpty){
                     b = double.parse(a);
                     b = b*(9/5)+32;
                     Fluttertoast.showToast(
                       msg: b.toString(),
-                      
-
                     );
                    }
+                   });
                  },
-               )
+               ),
+              Text(b.toString())
              ],
            ),
          ),
