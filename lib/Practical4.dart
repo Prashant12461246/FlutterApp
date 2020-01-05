@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +13,7 @@ class _Practical4State extends State<Practical4> {
   Widget build(BuildContext context) {
     String a;
     double b;
-    int f;
-    return Container(
+      return Container(
        child: Scaffold(
          appBar: AppBar(
            title: Text("Practical 4"),
