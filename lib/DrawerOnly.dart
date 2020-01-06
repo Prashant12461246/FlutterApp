@@ -5,6 +5,7 @@ import 'Practical3.dart';
 import 'Practical4.dart';
 import 'Practical5.dart';
 import 'Practical6.dart';
+import 'Practical7.dart';
 
 class DrawerOnly extends StatelessWidget {
   const DrawerOnly({Key key}) : super(key: key);
@@ -63,8 +64,14 @@ class DrawerOnly extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push(context, new MaterialPageRoute(builder: (context) => new Practical6()));
             },
-          )
-          
+          ),
+          ListTile(
+            title: Text("practical 7"),
+            onTap: (){
+              Navigator.pop(context);
+              Navigator.push(context, new MaterialPageRoute(builder: (context) => new Practical7()));
+            },
+          ),
         ],
       ),
     );
