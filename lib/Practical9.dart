@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class Practical9 extends StatefulWidget {
   Practical9({Key key}) : super(key: key);
@@ -11,18 +11,12 @@ class Practical9 extends StatefulWidget {
 class _Practical9State extends State<Practical9> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WebviewScaffold(
       appBar: AppBar(
-        title: Text("practical 9"),
+        title: Text("Browser"),
       ),
-      body: Builder(
-        builder: (BuildContext context){
-          return WebView(
-            initialUrl: 'www.google.com',
-            javascriptMode: JavascriptMode.unrestricted,
-          );
-        },
-      ),
+      url: "https://www.google.com/"
+      
     );
   }
 }
