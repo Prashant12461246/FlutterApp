@@ -1,48 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_widget/carousel_widget.dart';
 
-class Practical8 extends StatefulWidget {
-
-  @override
-  _Practical8State createState() => _Practical8State();
-}
-
-class _Practical8State extends State<Practical8> {
-  List<Widget> containers = [
-    Container(
-      color: Colors.redAccent,
-    ),
-    Container(
-      color: Colors.blueAccent,
-    ),
-    Container(
-      color: Colors.cyanAccent,
-    )
-  ];
-
+class Practical8 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Practical 8"),
-          bottom: TabBar(
-            tabs: <Widget>[
-              Tab(
-                text: 'chats',
-              ),
-              Tab(
-                text: 'status',
-              ),
-              Tab(
-                text: 'calls',
-              )
-            ],
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text('FRAGMENT'),
+        backgroundColor: Colors.deepPurpleAccent,
+      ),
+      body: Column(
+        children: <Widget>[
+          Container(
+            height: 300.0,
+            child: Carousel(
+              listViews: [
+                Fragment(
+                  child: ListView(
+                    children: <Widget>[
+                      Image.asset('assets/1.jpg'),
+                    ],
+                  ),
+                ),
+                Fragment(
+                  child: ListView(
+                    children: <Widget>[
+                      Image.asset('assets/2.jpg'),
+                    ],
+                  ),
+                ),
+                Fragment(
+                  child: ListView(
+                    children: <Widget>[
+                      Image.asset('assets/3.jpg'),
+                    ],
+                  ),
+                ),
+                Fragment(
+                  child: ListView(
+                    children: <Widget>[
+                      Image.asset('assets/4.jpg'),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        body: TabBarView(
-          children: containers,
-        ),
+          Container(
+              height: 300.0,
+              child: Fragment(
+                child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: ((context, index) => ListTile(
+                          title: Text('index $index'),
+                        ))),
+              ))
+        ],
       ),
     );
   }
