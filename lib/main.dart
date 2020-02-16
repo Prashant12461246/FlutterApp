@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: "practical",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("17it101_practical"),
+          title: Text("17it23_practical"),
           backgroundColor: Colors.blueAccent,
         ),
         drawer: DrawerOnly(),
