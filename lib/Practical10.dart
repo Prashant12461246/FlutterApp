@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 
+FirebaseUser data; 
 
 class Practical10 extends StatefulWidget {
 
@@ -12,7 +13,7 @@ class Practical10 extends StatefulWidget {
 }
 
 class _Practical10State extends State<Practical10> {
-  String myText = null;
+  String myText;
   StreamSubscription<DocumentSnapshot> subscription;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final DocumentReference documentReference= Firestore.instance.document("myData/dummy");
@@ -26,10 +27,13 @@ class _Practical10State extends State<Practical10> {
     final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: gSA.idToken, accessToken: gSA.accessToken);
 
     final AuthResult authResult = await _auth.signInWithCredential(credential);
-    FirebaseUser user = authResult.user;
+     FirebaseUser user = authResult.user;
+
+    data = user;
     
     print("User name: ${user.displayName}");
-    return user;    
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> new Openpage()));
+    return user;
   }
 
   void _signOut(){
@@ -64,9 +68,12 @@ class _Practical10State extends State<Practical10> {
       "name" : "Prashant updated",
       "desc" : "student updated"
     };
-    documentReference.updateData(data).whenComplete((){
+    if (myText!=null) {
+      documentReference.updateData(data).whenComplete((){
       print("Document updated");
     }).catchError((e)=>print(e));
+    }
+    
 
   }
 
@@ -113,7 +120,7 @@ class _Practical10State extends State<Practical10> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             new RaisedButton(
-              onPressed: ()=> _signIn().then((FirebaseUser user)=>print(user)).catchError((e)=>print(e)),
+              onPressed: ()=> _signIn(),
               child: Text("Sign in"),
               color: Colors.green,
             ),
@@ -155,6 +162,22 @@ class _Practical10State extends State<Practical10> {
             ),)
 ],
         ),
+      ),
+    );
+  }
+}
+
+class Openpage extends StatefulWidget {
+  @override
+  _OpenpageState createState() => _OpenpageState();
+}
+
+class _OpenpageState extends State<Openpage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text("User name: ${data.displayName}"),
       ),
     );
   }
