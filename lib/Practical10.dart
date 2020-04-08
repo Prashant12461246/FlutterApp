@@ -15,31 +15,12 @@ class Practical10 extends StatefulWidget {
 class _Practical10State extends State<Practical10> {
   String myText;
   StreamSubscription<DocumentSnapshot> subscription;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  //final FirebaseAuth _auth = FirebaseAuth.instance;
   final DocumentReference documentReference= Firestore.instance.document("myData/dummy");
 
   final GoogleSignIn googleSignIn = new GoogleSignIn();
 
-  Future<FirebaseUser> _signIn() async{
-    GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-    GoogleSignInAuthentication gSA = await googleSignInAccount.authentication;
-
-    final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: gSA.idToken, accessToken: gSA.accessToken);
-
-    final AuthResult authResult = await _auth.signInWithCredential(credential);
-     FirebaseUser user = authResult.user;
-
-    data = user;
-    
-    print("User name: ${user.displayName}");
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> new Openpage()));
-    return user;
-  }
-
-  void _signOut(){
-    googleSignIn.signOut();
-    print("sign out");
-  }
+  
 
   void _add(){
     Map<String,String> data = <String,String>{
@@ -111,7 +92,7 @@ class _Practical10State extends State<Practical10> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Firebase Demo"),
+        title: Text("Practical 10"),
       ),
       body: new Padding(
         padding: const EdgeInsets.all(20.0),
@@ -119,19 +100,7 @@ class _Practical10State extends State<Practical10> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            new RaisedButton(
-              onPressed: ()=> _signIn(),
-              child: Text("Sign in"),
-              color: Colors.green,
-            ),
-           
-            new Padding(padding: const EdgeInsets.all(10.0)),
-            new RaisedButton(
-              onPressed:_signOut,
-              child: Text("Sign out"),
-              color: Colors.red,
-            ),
-            new Padding(padding: const EdgeInsets.all(10.0)),
+            
             new RaisedButton(
               onPressed:_add,
               child: Text("add"),
