@@ -18,28 +18,28 @@ class Practical8 extends StatelessWidget {
                 Fragment(
                   child: ListView(
                     children: <Widget>[
-                      Image.asset('assets/1.jpg'),
+                      Image.asset('assets/images/1.jpg'),
                     ],
                   ),
                 ),
                 Fragment(
                   child: ListView(
                     children: <Widget>[
-                      Image.asset('assets/2.jpg'),
+                      Image.asset('assets/images/2.jpg'),
                     ],
                   ),
                 ),
                 Fragment(
                   child: ListView(
                     children: <Widget>[
-                      Image.asset('assets/3.jpg'),
+                      Image.asset('assets/images/3.jpg'),
                     ],
                   ),
                 ),
                 Fragment(
                   child: ListView(
                     children: <Widget>[
-                      Image.asset('assets/4.jpg'),
+                      Image.asset('assets/images/4.jpg'),
                     ],
                   ),
                 )
