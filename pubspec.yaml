@@ -29,7 +29,8 @@ dependencies:
   cloud_firestore: 
   flutter_staggered_grid_view:
   sso: ^0.2.0
-  speech_recognition: ^0.3.0
+  speech_to_text:
+  speech_recognition: "^0.3.0"
   provider: ^3.0.0+1
   get_it: ^1.0.3+2
   tflite: ^1.0.4
